@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html>
+ <head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   {% if page.title %}
+   <title>{{ page.title }} - Island Time</title>
+   {% else %}
+   <title> Welcome to Island Time</title>
+   {% endif %}
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="/css/main.css">
+   <link rel="icon" href={{ "/images/BF3-icon.svg" | relative_url }}>
+ </head>
+ <body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href={{ "index.html" | relative_url }}>
+       <img src={{ "/images/BF3-icon.svg" | relative_url }} width="50" height="50" class="d-inline-block align-center" alt="">
+       Island Time
+     </a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+           <a class="nav-link" href={{ "/about" | relative_url }}> About </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{{ "/cv" | relative_url }}"> CV</a>
+         </li>
+       </ul>
+     </div>
+   </nav>
+   <br>
+   <div class="container">
+   {{ content }}
+   </div>
+
+   <!--<script src="https://use.fontawesome.com/b68c9a0cf9.js"></script> -->
+   <script src="https://kit.fontawesome.com/a852bca4b2.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ </body>
+</html>

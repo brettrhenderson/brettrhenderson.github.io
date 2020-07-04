@@ -1,0 +1,67 @@
+---
+layout: default
+title: "Welcome"
+---
+
+<p>
+I am a California transplant living on Vancouver Island. As I computational
+chemist, I use some of the most powerful computers in the world to probe matter
+at the atomic scale. What follows mostly has nothing to do with that. These are
+the fun python adventures that consume my free time, mixed in with some old college
+projects for the sake of nostalgia and just a *little* bit of what I do now for
+research. I hope they offer an entertaining look at what you can do with
+an old laptop and a bit of code and perhaps inspire or guide you as you build
+things of your own!
+</p>
+
+{% assign loopindex = 0 %}
+{% for post in site.posts %}
+  {% assign loopindex = loopindex | plus: 1 %}
+  {% assign rowfinder = loopindex | modulo: 3 %}
+  {% if rowfinder == 1 %}
+    <div class="row">
+      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
+        <div class="card">
+          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image">
+          <div class="card-body">
+            <p class="card-text">{{ post.title }}</p>
+          </div>
+        </div>
+      </a>
+  {% elsif rowfinder == 0 %}
+      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
+        <div class="card">
+          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image">
+          <div class="card-body">
+            <p class="card-text">{{ post.title }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  {% else %}
+    <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
+      <div class="card">
+        <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image">
+        <div class="card-body">
+          <p class="card-text">{{ post.title }}</p>
+        </div>
+      </div>
+    </a>
+  {% endif %}
+{% endfor %}
+{% if rowfinder != 0 %}
+  </div>
+{% endif %}
+
+<!--Grid of thumbnail cards for each post
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+-->
+
+{% include footer.html %}

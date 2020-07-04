@@ -1,0 +1,104 @@
+footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+a {
+    text-decoration: none;
+    color: #999;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 3em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+p {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
+}
+footer {
+    font-size: 1.8em;
+    border-top: 1px solid #d5d5d5;
+}
+
+ul.posts {
+    margin: 20px auto 40px;
+    font-size: 1.5em;
+}
+
+ul.posts li {
+    list-style: none;
+}
+
+a.clickable-card,
+a.clickable-card:hover {
+  color: inherit;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Set a specific color for each brand */
+/* Facebook */
+.fa-facebook {
+  color: #3B5998;
+}
+
+/* Twitter */
+.fa-twitter {
+  color: #55ACEE;
+}
+
+.fa-github {
+  color: #000000;
+}
+
+.fa-linkedin {
+  color: #0e76a8;
+}
+
+.fa-envelope {
+  color: #b23121;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+	-webkit-animation: linkfadein 0.75s ease infinite alternate;
+	-moz-animation: linkfadein 0.75s ease infinite alternate;
+	-o-animation: linkfadein 0.75s ease infinite alternate;
+	animation: linkfadein 0.75s ease infinite alternate;
+}
+
+@-webkit-keyframes linkfadein {
+	from { opacity: 1.0; }
+	to { opacity: 0.7; }
+}
+
+@-moz-keyframes linkfadein {
+  from { opacity: 1.0; }
+	to { opacity: 0.7; }
+}
+
+@-o-keyframes linkfadein {
+  from { opacity: 1.0; }
+	to { opacity: 0.7; }
+}
+
+@keyframes linkfadein {
+  from { opacity: 1.0; }
+	to { opacity: 0.7; }
+}
