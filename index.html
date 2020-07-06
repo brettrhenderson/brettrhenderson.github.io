@@ -12,39 +12,42 @@ projects for the sake of nostalgia and just a *little* bit of what I do now for
 research. I hope they offer an entertaining look at what you can do with
 an old laptop and a bit of code and perhaps inspire or guide you as you build
 things of your own!
-<h3>Featured Projects</h2>
+<h3>Featured Projects</h3>
 </p>
 {% assign loopindex = 0 %}
 {% for post in site.posts %}
   {% assign loopindex = loopindex | plus: 1 %}
   {% assign rowfinder = loopindex | modulo: 3 %}
+  <!-- Beginning of row -->
   {% if rowfinder == 1 %}
     <div class="row">
       <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
         <div class="card">
-          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image" height="150">
-          <div class="card-body">
+          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image" height="130">
+          <div class="card-body p-2">
             <h6 class="card-title">{{ post.title }}</h6>
             <p class="card-text">{{ post.blurb }}</p>
           </div>
         </div>
       </a>
+  <!-- End of row -->
   {% elsif rowfinder == 0 %}
       <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
         <div class="card">
-          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
-          <div class="card-body">
+          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
+          <div class="card-body p-2">
             <h6 class="card-title">{{ post.title }}</h6>
             <p class="card-text">{{ post.blurb }}</p>
           </div>
         </div>
       </a>
     </div>
+  <!-- Middle of row -->
   {% else %}
     <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
       <div class="card">
-        <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
-        <div class="card-body">
+        <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
+        <div class="card-body p-2">
           <h6 class="card-title">{{ post.title }}</h6>
           <p class="card-text">{{ post.blurb }}</p>
         </div>
