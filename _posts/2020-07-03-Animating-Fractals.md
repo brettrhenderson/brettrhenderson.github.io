@@ -3,12 +3,12 @@ layout: post
 title: "Animating Fractals"
 date: 2020-04-20
 thumbnail: fractal.png
+blurb: "Using matplotlib and some basic tree traversal algorithms to build a common 2D fractal."
 ---
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/brettrhenderson/pyFractals/master?filepath=Sierpinski_Triangle.ipynb)
-<p align="center">
-    <img src="images/logo.png" width=400/>
-</p>
+
+![Sierpinski Triangle](/images/fractal.png)
 
 This was just a fun Jupyter Notebook that I played around with while
 procrastinating on my chemistry research. While trying to find a video of when
@@ -39,8 +39,8 @@ First, set up a virtual environment to run the notebook. I have tested this Note
 using python 3.7, but it will *probably* work with 3.5 or newer.
 
 **Using virtualenv and pip**
-I have frozen my working environment in [full_env.txt](full_env.txt), so the environment
-can be recreated with
+I have frozen my working environment in [full_env.txt](https://github.com/brettrhenderson/pyFractals/blob/master/full_env.txt),
+so the environment can be recreated with
 
 ```pip install -r full_env.txt```
 
@@ -91,7 +91,7 @@ plt.show()
 
 This should display the following simple tree:
 
-![Simple Tree](images/basic_tree.png)
+![Simple Tree](/images/basic_tree.png)
 
 ### Create Tree with Integer Values
 
@@ -104,7 +104,7 @@ parents are only used in plotting the tree.
 We will build the following tree, where the text shows the values associated with
 each node.
 
-![Valued Tree](images/two_level_text.png)
+![Valued Tree](/images/two_level_text.png)
 
 ```python
 root = Node(1)  # creates a node at the origin
@@ -147,7 +147,8 @@ plt.show()
 ```
 
 This should output
-![3 Level Fractal](images/sierp_tree.png)
+
+![3 Level Fractal](/images/sierp_tree.png)
 
 ### Animate the Drawing of a Tree
 

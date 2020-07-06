@@ -5,11 +5,7 @@
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   {% if page.title %}
-   <title>{{ page.title }} - Island Time</title>
-   {% else %}
-   <title> Welcome to Island Time</title>
-   {% endif %}
+   <title>{{ page.title }}</title>
 
    <!-- Bootstrap -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -38,7 +34,9 @@
    </nav>
    <br>
    <div class="container">
-   {{ content }}
+     <h1 class='header'>{{ page.title }}</h1>
+
+     {{ content }}
    </div>
 
    <!--<script src="https://use.fontawesome.com/b68c9a0cf9.js"></script> -->

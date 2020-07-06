@@ -3,10 +3,11 @@ layout: post
 title: "Pacman: Revenge of Blinky"
 date: 2020-04-20
 thumbnail: pacboi.png
+blurb: "A fun implementation of the classic video game using Javascript."
 ---
-<p align="center">
-    <img src="app/static/images/logo.png" width=400/>
-</p>
+
+![Pacman Logo](/images/pacboi.png)
+
 This game originally comprised my final project for Computer Science 50, which was
 an introductory CS class at Harvard College and my first exposure to computer
 programming. It was completed as a group project alongside Nikolas Cable and Andrew

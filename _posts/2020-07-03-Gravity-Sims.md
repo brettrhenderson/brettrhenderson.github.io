@@ -3,14 +3,14 @@ layout: post
 title: "Some Physical (and Unphysical) Simulations"
 date: 2020-04-20
 thumbnail: gravity.png
+blurb: "A collection of classical mechanics simulations, from celestial orbits to ideal gases."
 ---
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/brettrhenderson/PySims/master)
-<p align="center">
-  <img src="images/logo.png" width=400/>
-</p>
 
-This repository is a collection of simulations and animations in a couple of domains--namely,
+![Gravity Logo](/images/gravity.png)
+
+This project is a collection of simulations and animations in a couple of domains--namely,
 [celestial mechanics](#gravity), [chemistry](#gases), and [just plain fun](#random).
 Most of them sprang out out of a desire to gain a more practical understanding of
 how physical systems can be simulated in silico, which I felt would better ground
@@ -42,8 +42,8 @@ work with 3.5 or newer. The dependencies are minimal--Numpy, Matplotlib, Jupyter
 Here are two options for getting this all installed.
 
 **1. Using virtualenv and pip**
-I have frozen my working environment in [full_env.txt](full_env.txt), so the environment
-can be recreated with
+I have frozen my working environment in [full_env.txt](https://github.com/brettrhenderson/PySims/blob/master/full_env.txt),
+so the environment can be recreated with
 
 ```pip install -r full_env.txt```
 
@@ -106,14 +106,14 @@ inverse r potential between bodies.
   ```
   Then just run it from your terminal with `python projectile.py` You should get
   a pop-up video that looks something like this!
-  ![Javelin](images/projectile.png)
+  ![Javelin](/images/projectile.png)
 
 * `many_planet.py` : A many body problem where planets are initialized with positions,
 velocities, and weights, and the system is allowed to evolve. The units are really
 dummy units, and in the inverse r potential, G is set to 1, giving the force acting
 on body i by body j as
 <p align="center">
-  <img src="images/fg.png"/>
+  <img src="/images/fg.png"/>
 </p>
 The G term is included at the top of the file, though, and you are welcome to change
 it and all of the masses and times you would like to simulate to your choice of
@@ -142,12 +142,12 @@ the relative sizes of the bodies.
   colors = ['r', 'k', 'b', 'g', 'y', 'm']
   ```
   This particular setup should yield something like
-  ![Orbits](images/orbits.png)
+  ![Orbits](/images/orbits.png)
 
   But we can easily tweak the starting conditions to end up with some pretty cool
   phenomena, like these two massive bodies "orbiting each other"
 
-  ![Wobble](images/wobble.gif)
+  ![Wobble](/images/wobble.gif)
 
   > :information_source: You may need to change the plot axes and time step to make your simulation
   run and animate smoothly. Look for the following lines to change
@@ -190,16 +190,16 @@ Alternatively, the [notebook](#) can be run on Binder.
 This notebook covers Kinetic Molecular Theory of Gases. It includes plots of the
 Maxwell-Boltzmann distribution for different temperatures and particle masses:
 
-![MB](images/mb.png)
+![MB](/images/mb.png)
 
 In addition, it has a simulation of particles in a 2D box with the associated
 speed distribution
 
-![MB Sim](images/mbsim.png)
+![MB Sim](/images/mbsim.png)
 
 and a diffusion simulation for gases with different masses
 
-![Diffusion](images/diffusion.png)
+![Diffusion](/images/diffusion.png)
 
 ### Random
 
@@ -207,7 +207,7 @@ Here I have a silly animation that isn't really a simulation at all. It does,
 however, involve some time evolution of traveling and stationary waves, so I
 have included it here.  I call him *Animan*!!!
 
-![Animan](images/animan.gif)
+![Animan](/images/animan.gif)
 
 To run animan for yourself, just run
 
