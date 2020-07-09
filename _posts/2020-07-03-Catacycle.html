@@ -122,6 +122,12 @@ blurb: "A web-based interface to generate visualizations of the rates of various
     function. Perhaps you'd do something like
 </p>
 {% highlight python %}
+import matplotlib.pyplot as plt
+from drawing_helpers import *
+from oboros import draw_cycle
+import matplotlib.patches as mpatches
+{% endhighlight %}
+{% highlight python %}
 # create a figure
 fig = plt.figure(1, figsize=(8,8))
 ax = fig.add_subplot(111)
