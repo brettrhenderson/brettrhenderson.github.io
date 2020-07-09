@@ -15,10 +15,12 @@ div.main {
     margin-left: 260px;
     margin-right: 180px;
     padding-top: 105px;
+    padding-bottom: 40px;
 }
 .noside {
     width: 60%;
-    padding-top: 50px;
+    padding-top: 105px;
+    padding-bottom: 40px;
 }
 
 footer ul {
