@@ -49,10 +49,10 @@ blurb: "A web-based interface to generate visualizations of the rates of various
           <img class="ml-2" src="/images/ouroboros.png" alt="Ouroboros" width="250">
         </p>
         <figcaption style="max-width: 700px;">
-            Left: A symbolic example of a catalytic cycle and how they are often depicted in chemistry publications.
+            <i>Left:</i> A symbolic example of a catalytic cycle and how they are often depicted in chemistry publications.
             (From <a href="https://en.wikipedia.org/wiki/Catalytic_cycle#/media/File:Catcycle.png">Wikipedia</a>,
             Public Domain). Think of the cycle like <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a>,
-            the classic symbol of a serpent consuming its own tail (right, Wikimedia Commons).
+            the classic symbol of a serpent consuming its own tail (<i>Right</i>, Wikimedia Commons).
         </figcaption>
     </figure>
 </div>
@@ -153,6 +153,48 @@ set_ax_lims(ax, [arrow_path, f_path, r_path])
 plt.axis('off')
 plt.show()
 {% endhighlight %}
+<p>Taken altogether, these code snippets should yield something like the left-hand figure <a href="#notebook">below</a>.
+    This is kinda neat, but if you wanted to create an entire cycle manually, it could get a little tedious. That's where
+    the oboros module can be handy, since it defines the helpful <span class="inline-code">draw_cycle()</span> function.
+    There are a lot of parameters to mess with here, but I've only shown a few. For example, if you wanted incoming and
+    outgoing arrows, you would need to add <span class="inline-code ">'is_incoming'</span> and
+    <span class="inline-code">'is_outgoing'</span> boolean lists to the data dictionary, where each item tells whether
+    the arrow of that index in the cycle has an incoming or outgoing side arrow. Below is a pretty simple example of a
+    cycle with 5 steps. Commenting out lines of the data dictionary will revert to default options.
+</p>
+{% highlight python %}
+fig = plt.figure(1, figsize=(8,8))
+ax = fig.add_subplot(111)
+
+data = {
+    'num_steps': 5,
+    'forward_rates': [3.0, 2.0, 4.0, 1.0, 2.0],
+    'rev_rates': [0.0, 1.0, 2.0, 3.0, 0.0],
+    'fcolours': "#4286f4 #e2893b #de5eed #dd547d #4ee5ce".split(),
+    'rcolours': "#82abed #efb683 #edb2f4 #ef92ae #91f2e3".split()
+}
+
+paths = draw_cycle(data, ax, radius=3.0)
+set_ax_lims(ax, paths)
+plt.axis('off')
+plt.show()
+{% endhighlight %}
+
+<a id="notebook" class="anchor"></a>
+<div class="row justify-content-center">
+    <figure>
+        <p align="center">
+          <img class="mr-2" src="/images/arrows.png" alt="Catalytic Cycle" width="350">
+          <img class="ml-2" src="/images/democycle.png" alt="Ouroboros" width="450">
+        </p>
+        <figcaption style="max-width: 800px;">
+            <i>Left:</i> A non-reversible and reversible arrow generated with the <span class="inline-code">curved_arrow_single()</span>
+            and <span class="inline-code">curved_arrow_double()</span> functions defined by the drawing_helpers module.
+            <i>Right:</i> A simple cycle generated with the <span class="inline-code">draw_cycle()</span> function defined
+            in the oboros module. Both figures were plotted inline in a jupyter notebook.
+        </figcaption>
+    </figure>
+</div>
 
 <h4 id="frontend" class="linkable">The Front-end</h4>
 <p>
