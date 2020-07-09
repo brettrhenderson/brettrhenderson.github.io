@@ -1,9 +1,23 @@
 ---
 layout: default
 ---
-
-<div class="post">
-  {{ content }}
+<div class="sidenav bg-light border-right border-secondary">
+  <div id="toc" class="border border-secondary"></div>
+</div>
+<div class="container main">
+  <h1 class='header'>{{ page.title }}{% if page.subtitle %}
+    <h3 class="text-muted">{{ page.subtitle }}</h3>
+  {% endif %}</h1>
+  <div class="post">
+    {{ content }}
+  </div>
 </div>
 
 {% include footer.html %}
+
+<script src="/js/toc.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#toc').toc({ headers: 'h1, h2, h3, h4, h5', classes: { list: 'toc-list', item: 'toc-item' }, listType: 'ul' });
+});
+</script>

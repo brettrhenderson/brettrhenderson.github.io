@@ -45,7 +45,9 @@ Here are two options for getting this all installed.
 I have frozen my working environment in [full_env.txt](https://github.com/brettrhenderson/PySims/blob/master/full_env.txt),
 so the environment can be recreated with
 
-```pip install -r full_env.txt```
+```bash
+pip install -r full_env.txt
+```
 
 in your virtualenv to get the necessary dependencies. The weird name for the requirements
 is to avoid conflicts with building the environment on [Binder](#binder) when sharing notebooks.
@@ -57,7 +59,9 @@ Alternatively, `environment.yml` can be used to create a conda environment that 
 ffmpeg. This is the environment used for sharing the contained notebooks on [Binder](#binder).
 If you are a conda user, then, just run
 
-```conda env create -f environment.yml```
+```bash
+conda env create -f environment.yml
+```
 
 ## Binder
 If you want to run the notebooks in this repository but don't want to install anything
@@ -104,6 +108,7 @@ inverse r potential between bodies.
       # dt, nmax - time step (s), maximum number of time steps
       jav = Projectile(h0, v0, rg=6.731e6, g=9.8, dt=0.05, nmax=30000)
   ```
+  
   Then just run it from your terminal with `python projectile.py` You should get
   a pop-up video that looks something like this!
   ![Javelin](/images/projectile.png)
@@ -129,7 +134,8 @@ the relative sizes of the bodies.
   and the columns are `rx, ry, vx, vy`. We specify the mass of each body in the `ms`
   array in arbitrary units, and control the look of the bodies in our plot with the
   `sizes` (marker size) and `colors` lists
-  ```python
+  
+```python
   # Initial State
   initial = np.array([[0, 0, 0, 0],
                       [7, 0, 0, 25],
@@ -141,6 +147,7 @@ the relative sizes of the bodies.
   sizes = [30, 5, 3, 12, 10, 3]
   colors = ['r', 'k', 'b', 'g', 'y', 'm']
   ```
+
   This particular setup should yield something like
   ![Orbits](/images/orbits.png)
 
@@ -149,8 +156,11 @@ the relative sizes of the bodies.
 
   ![Wobble](/images/wobble.gif)
 
+---
   > :information_source: You may need to change the plot axes and time step to make your simulation
   run and animate smoothly. Look for the following lines to change
+
+---
 
   ```python
   # Plotting Stuff
@@ -214,4 +224,5 @@ To run animan for yourself, just run
 ```bash
 python animan.py
 ```
+
  in your terminal. Have fun making him do new dances by tweaking the code, too!

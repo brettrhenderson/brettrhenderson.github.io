@@ -1,0 +1,230 @@
+---
+layout: post
+title: "Catacycle"
+subtitle: "An Information-Rich Graphical Representation of Catalytic Cycles"
+date: 2020-04-20
+thumbnail: catacycle.png
+blurb: "A web-based interface to generate visualizations of the rates of various steps in a catalytic cycle."
+---
+<p align="center">
+    <img src="/images/cycle_a.png" width="100">
+    <img src="/images/cycle_c.png" width="150">
+    <img src="/images/cycle_x.png" width="200">
+    <img src="/images/cycle_b.png" width="150">
+    <img src="/images/cycle_d.png" width="100">
+</p>
+
+<p>
+    Catacycle is a web-based tool to generate visualizations of the rates of various steps in a catalytic cycle. The user
+    populates a web form using what they know about their reaction, and the tool generates a graphic that the user can then
+    annotate in the editor of their choice with molecular formulas and text to represent their chemistry.
+    The running Catacycle app can be found at <a href="www.Catacycle.com">www.Catacycle.com</a>. In addition,
+    Organometallics published an editorial that we contributed in October 2019 describing the tool, as seen
+    <a href="https://pubs.acs.org/doi/full/10.1021/acs.organomet.9b00563">here</a>.
+</p>
+
+<h3 id="intro" class="linkable">What is a catalytic cycle?</h3>
+<p>
+    In casual talk, we often speak of a catalyst as think or person that brings about or speeds change. In chemistry, though,
+    the word has a more specific definition. A <strong>catalyst</strong> is <i>a chemical species that speeds up a chemical
+    reaction without being used up in the process</i>. Basically, a catalyst can cause the molecules that a chemist
+    wants to react to interact in a way that is hard for them to do on their own, often because it facilitates those
+    molecules lining up in just the right way to react (form and break bonds). Usually, the catalyst undergoes a
+    temporary change itself, only to have this change reversed and the original catalyst regenerated. This transformation
+    and regeneration of a catalyst is what we mean when we say <strong>catalytic cycle</strong>.
+</p>
+<p>
+    This cycle occurs over a few steps, with the reactants going in at one step, the products coming out at another, and the
+    catalyst itself going around and around so long as there are more reactants available to keep the reaction going
+    (this is a simplified picture, but it gets the point across). Catalysis can happen anywhere, from inside the
+    human body (enzymes are just macromolecular catalysts) to the surface of metals, and chemists work hard to understand
+    these reactions and invent new catalysts to speed reactions that are useful to society (like producing ammonia
+    in the <a href="https://en.wikipedia.org/wiki/Haber_process">Haber process</a>.
+</p>
+<a id="ouroboros" class="anchor"></a>
+<div class="row justify-content-center">
+    <figure>
+        <p align="center">
+          <img class="mr-2" src="/images/cat_cycle_example.png" alt="Catalytic Cycle" width="300">
+          <img class="ml-2" src="/images/ouroboros.png" alt="Ouroboros" width="200">
+        </p>
+        <figcaption style="font-size: 0.8em; max-width: 600px;">
+            Left: A symbolic example of a catalytic cycle and how they are often depicted in chemistry publications.
+            (From <a href="https://en.wikipedia.org/wiki/Catalytic_cycle#/media/File:Catcycle.png">Wikipedia</a>,
+            Public Domain). Think of the cycle like <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a>,
+            the classic symbol of a serpent consuming its own tail (right, Wikimedia Commons).
+        </figcaption>
+    </figure>
+</div>
+
+
+<h3 id="motivation" class="linkable">Why did we make Catacycle?</h3>
+<p>
+    Well, it turns out chemists hate tedious, repetitive tasks as much as the next person. I rarely work with
+    catalysis in my own research, but when Professor Scott McIndoe at UVic floated the idea of building a tool to ease
+    the pain of drawing these cycles to fellow computational chemist James MacFarlane and myself, we thought it could
+    be a fun project and agreed to help him out. Scott basically told us, "I've seen a lot of <i>reeeeaaaally</i> ugly
+    catalytic cycles in publications, but I think there's an easier way." Chemists usually use a tool called ChemDraw
+    to generate their cycle figures, and while it is an excellent tool for drawing chemical species and reactions, it
+    can be very annoying to use for drawing a cycle. The arrows can be difficult to align, and often have funky spline
+    shapes. Scott asked if we could help make the cycle-drawing process repeatable and easy and produce images that
+    are nice enough to go in a journal article.
+</p>
+<h4 id="novelty" class="linkable">Adding rate information to the cycle</h4>
+<p>
+    But the other idea behind Catacycle is that it can give a visual representation of how fast each step in the cycle
+    is. Imagine that one of the steps in the cycle is much slower than all of the rest. Then reactants would tend to pile
+    up at that step and the cycle only proceeds at the rate that that single step can turn over, since every subsequent
+    step depends on its output. Think of it like someone placing a dam in the middle of a lazy river, but that dam has
+    a little pipe poked through the middle of it. The overall flow of the river will only be as fast as the water can flow
+    through the pipe under the applied pressure. Similarly, a single slow step in a catalytic cycle can slow the turnover
+    of the cycle as a whole.
+</p>
+<p>
+    Through cleverly designed experiments, chemist often can figure out how fast each step of
+    their cycle would be on its own (of course when all the steps are chained together, they all proceed at the same rate).
+    So we decided to adapt the pipe analogy by representing the rate constant of individual steps with the thickness
+    of the arrow for that step. If arrows were pipes, then reactants could flow more easily through thicker arrows.
+    This representation is merely qualitative, since it can be difficult to compare two rate constants quantitatively
+    unless the rate law, the equation governing the kinetics of a reaction step, have the same form, which is not
+    always the case. Still, putting some visual data about step rates in a cycle drawing can give a quick, at-a-glance
+    sense of which steps are limiting the turnover of the cycle.
+</p>
+<h3 id="execution" class="linkable">How we built it</h3>
+<p>
+    Catacycle is a web application built with the Python micro web framework
+    <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> and deployed on
+    <a href="https://help.pythonanywhere.com/pages/Flask/">pythonanywhere.com</a>. Originally, the entire software existed
+    as a single python script for plotting cycles using matplotlib. Because of this legacy, all of the plots in Catacycle
+    are still generated by the Python backend and then served up to the user's browser rather than by a Javascript plotting
+    library like D3.
+</p>
+<h4 id="backend" class="linkable">The Python back-end</h4>
+<p>
+    Catacycle's drawing capabilities lie in two modules, <strong>drawing_helpers</strong> and <strong>oboros</strong>
+    (short for <a href="#ouroboros">ouroboros</a>).
+</p>
+<ol>
+    <li>
+        <i>drawing_helpers.py</i> contains the implementation of drawing individual arrows using matplotlib functions.
+        Basically, we had to design custom matplotlib paths for the specific types of curved arrows that we needed.
+    </li>
+    <li>
+        <i>oboros.py</i> strings together the drawing functions to create a cycle and returns an image which can be passed
+        as a response back to the webpage for display.
+    </li>
+</ol>
+<h5 id="examples" class="linkable">Some Examples</h5>
+<p>
+    Catacycle's drawing functions can be imported in other python scripts as well or used in a Jupyter notebook.
+    For example, if you wanted to add a customizable curved arrow to another matplotlib plot you had, you
+    could import the drawing_helpers module and use the <span class="inline-code">curved_arrow_single()</span>
+    function. Perhaps you'd do something like
+</p>
+{% highlight python %}
+# create a figure
+fig = plt.figure(1, figsize=(8,8))
+ax = fig.add_subplot(111)
+
+# parameters go start angle, end angle, radius, width, and then keyword args
+arrow_path = curved_arrow_single(0, 90, 3, 0.5, origin=(0,0), rel_head_len=0.2, rel_head_width=1.9, reverse=True)
+arrow_patch = mpatches.PathPatch(arrow_path, facecolor='#000055', edgecolor='#0055FF')
+ax.add_patch(arrow_patch)
+{% endhighlight %}
+<p>
+    Maybe you also needed a bi-directional arrow! This time, you can get the paths for both the forward and reverse
+    arrows with <span class="inline-code">curved_arrow_double()</span>.
+</p>
+{% highlight python %}
+# parameters go start angle, end angle, radius, outer width, inner width, and then keyword args
+f_path, r_path = curved_arrow_double(180, 270, 2, 0.25, 0.15, origin=(2,2), rel_head_len=0.2, rel_head_width=1.9)
+f_patch = mpatches.PathPatch(f_path, facecolor='#005555', edgecolor='#00FFFF')
+r_patch = mpatches.PathPatch(r_path, facecolor='#008855', edgecolor='#00FFFF')
+ax.add_patch(f_patch)
+ax.add_patch(r_patch)
+{% endhighlight %}
+
+<p>
+    To display it all, use the <span class="inline-code">set_ax_lims()</span> helper function and
+    display the plot like you would with any matplotlib figure.
+</p>
+{% highlight python %}
+set_ax_lims(ax, [arrow_path, f_path, r_path])
+plt.axis('off')
+plt.show()
+{% endhighlight %}
+
+<h4 id="frontend" class="linkable">The Front-end</h4>
+<p>
+    Designing the front end of Catacycle was one of my first experiences designing anything for the web, so I tried to
+    keep it simple. Using bootstrap for styling, I created a web form styled as a multi-tab bootstrap card. This form
+    allows the user to configure all of the data and styling attributes of their cycle.
+</p>
+<div class="row justify-content-center">
+    <figure>
+        <p align="center">
+          <img class="border border-dark mr-2" src="/images/catacycle_welcome.png" alt="Catalytic Cycle" width="450">
+          <img class="border border-dark ml-2" src="/images/catacycle_styles.png" alt="Cycle Styles" width="250">
+        </p>
+        <figcaption style="font-size: 0.8em; max-width: 700px">
+            <i>Left:</i> The opening view of Catacycle.com, with input form on the left for specifying cycle attributes.
+            <i>Right:</i> A close-up of the syling tab, which allows customization of cycle appearance.
+        </figcaption>
+    </figure>
+</div>
+
+<p>
+    Whenever the user hits the "Graph" button, an asynchronous ajax post request is sent to the python backend with
+    all of the data contained in the styling form. This data gets formatted as a python dictionary and input to the
+    <span class="inline-code">draw()</span> function within oboros.py. The resulting svg is returned as a
+    response, and the javascript replaces the old cycle image with the new one. As shown in the <a href="#demo">demo</a>
+    section below, it's possible to create some pretty intricate cycles, including two intertwined cycles.
+</p>
+<div class="row justify-content-center">
+    <figure>
+        <p align="center">
+          <img class="mr-2" src="/images/catacycle_double.svg" alt="Double Cycle" width="350">
+          <img class="ml-2" src="/images/deco_cycle.gif" alt="Decorated Cycle" width="350">
+        </p>
+        <figcaption style="font-size: 0.8em; max-width: 700px">
+            <i>Left:</i> A double-cycle generated at catacycle.com.
+            <i>Right:</i> Once an image is downloaded, it can be imported into ChemDraw or another molecular editor
+            and decorated with the user's specific chemistry. This example was taken from our
+            <a href="https://pubs.acs.org/doi/full/10.1021/acs.organomet.9b00563">editorial</a> on Catacycle
+            published in Organometallics.
+        </figcaption>
+    </figure>
+</div>
+
+<h3 class="linkable" id="drawbacks">Drawbacks and possible directions</h3>
+<p>
+    Because of this back and forth to the server, we have found that there can be some lag in updating the cycle
+    depending on the speed of your internet connection. Additionally, since the image is simply a static svg,
+    we haven't been able to implement the sort of interactivity we would like with it. In an ideal world, a user
+    would be able to hover over or perhaps click on an arrow in the cycle, and a list of options would pop up,
+    allowing the user to change the data and style of individual arrows intuitively. Perhaps the user could just click
+    and drag the end of an arrow to lengthen or shorten it, all the while having all arrows stay on the circular
+    template which keeps the cycles looking clean, for example.
+</p>
+<p>
+    I think that this interactivity could be achieved if we ported over the python plotting code to a javascript
+    plotting library like <a href="https://d3js.org/">D3</a>. Although it has a notorious learning curve compared to
+    matplotlib, D3 would allow us to have a responsive cycle and eliminate the lag from waiting for the server to
+    respond with updated cycles.
+</p>
+<h3 class="linkable" id="demo">Demo</h3>
+<p>
+    Here is a quick screencast showcasing the major features of Catacycle. In it, I add and remove steps, change
+    arrow colors and styles, add a second overlapping cycle, and download the final product.
+</p>
+<video width="800" controls>
+  <source src="/videos/catacycle_screencast.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<h3 class="linkable" id="github">Where the Code Lives</h3>
+<p>
+    The Catacycle code is available on <a href="https://github.com/brettrhenderson/Catacycle">github</a>, which
+    also contains instructions for installing it on your own computer in case you would like to play around with the
+    code.
+</p>
