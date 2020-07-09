@@ -1,8 +1,13 @@
 @import "default.css";
 
+figcaption {
+     font-size: 0.9em;
+     color: #777;
+}
+
 .main {
     width: 60%;
-    margin-left: 240px;
+    margin-left: 260px;
     margin-right: 180px;
     padding-top: 60px;
 }
@@ -46,10 +51,11 @@ h1 {
 }
 
 .card-text {
-  font-size: 12px !important;
+  font-size: font-size: 0.9em;
+  color: #777;
 }
 .card-title {
-  font-size: 15px !important;
+  font-size: 1.2em;
 }
 
 footer {
@@ -144,10 +150,10 @@ a.clickable-card:hover {
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 220px; /* Set the width of the sidebar */
+  width: 250px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top: 56px; /* Stay at the top */
+  top: 67px; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
@@ -155,7 +161,7 @@ a.clickable-card:hover {
 
 /* The navigation menu links */
 .sidenav a {
-  font-size: 12px;
+  font-size: 1em;;
   display: block;
 }
 
@@ -167,7 +173,7 @@ a.clickable-card:hover {
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 10px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {font-size: 0.8em;}
 }
 
 div#toc {
@@ -176,7 +182,7 @@ div#toc {
 }
 
 .toc-item, toc-list {
-    font-size: 12px;
+    font-size: 1em;
 }
 .toc-list {
     padding-inline-start: 15px !important;
