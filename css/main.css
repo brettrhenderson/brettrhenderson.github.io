@@ -5,6 +5,11 @@ figcaption {
      color: #777;
 }
 
+p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
 .main {
     width: 60%;
     margin-left: 260px;

@@ -6,3 +6,4 @@ kramdown:
     default_lang: html
 plugins:
   - jemoji
+permalink: /blog/:year/:title
