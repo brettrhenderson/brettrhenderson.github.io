@@ -10,11 +10,11 @@ p {
     line-height: 1.5em;
 }
 
-.main {
+div.main {
     width: 60%;
     margin-left: 260px;
     margin-right: 180px;
-    padding-top: 60px;
+    padding-top: 105px;
 }
 .noside {
     width: 60%;
@@ -207,4 +207,18 @@ a.anchor {
     position: relative;
     top: -100px;
     visibility: hidden;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidenav a {
+    text-align: center;
+    float: none;
+  }
+  div.main {margin-left: 0;}
 }
