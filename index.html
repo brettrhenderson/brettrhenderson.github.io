@@ -1,54 +1,79 @@
 ---
-layout: noside
+layout: default
+podcasts:
+  - name: "How to Beat Your Kids at Board Games"
+    image: HTBYKABG.png
+    blurb: "Brothers Dan and John Henderson are committed to bringing you stimulating, useful, digestible board game advice."
+    url: https://podcasts.apple.com/us/podcast/how-to-beat-your-kids-at-board-games/id1511459464
+  - name: "Serial"
+    image: serial.png
+    blurb: "Serial is a podcast from the creators of This American Life, hosted by Sarah Koenig. Serial unfolds one story
+            - a true story - over the course of a whole season. The show follows the plot and characters wherever they
+            lead, through many surprising twists and turns. Sarah won't know what happens at the end of the story until
+            she gets there, not long before you get there with her. Each week she'll bring you the latest chapter, so
+            it's important to listen in, starting with Episode 1. New episodes are released on Thursday mornings."
+    url: https://podcasts.apple.com/us/podcast/serial/id917918570
 ---
-
-<p>
-  My name is Brett Henderson, and I am a California transplant living on Vancouver Island. As a computational
-  chemist, I use some of the most powerful computers in the world to probe matter at the atomic scale. What follows mostly
-  has nothing to do with that...
-</p>
-<h3>Featured Projects</h3>
-{% assign loopindex = 0 %}
-{% for post in site.posts %}
-  {% assign loopindex = loopindex | plus: 1 %}
-  {% assign rowfinder = loopindex | modulo: 3 %}
-  <!-- Beginning of row -->
-  {% if rowfinder == 1 %}
-    <div class="row">
-      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-        <div class="card">
-          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image" height="130">
-          <div class="card-body p-2">
-            <h6 class="card-title">{{ post.title }}</h6>
-            <p class="card-text">{{ post.blurb }}</p>
-          </div>
-        </div>
-      </a>
-  <!-- End of row -->
-  {% elsif rowfinder == 0 %}
-      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-        <div class="card">
-          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
-          <div class="card-body p-2">
-            <h6 class="card-title">{{ post.title }}</h6>
-            <p class="card-text">{{ post.blurb }}</p>
-          </div>
-        </div>
+<div class="sidenav bg-light border-right border-secondary">
+  <h5 class="pl-3 pr-3 pb-2 pt-2"><i class="fa fa-podcast"></i>&nbsp;&nbsp;Worth the Listen:</h5>
+  {% for podcast in page.podcasts %}
+  <a class="clickable-card light-hover" target="_blank" href="{{ podcast.url }}">
+    <div class="card p-2 m-2" style="max-height: 30vh; overflow: hidden;">
+      <img class="card-img-top" src="/images/{{ podcast.image }}" alt="Card Image">
+      <div class="card-body p-2">
+        <h6 class="card-title">{{ podcast.name }}</h6>
+        <p class="card-text" style="height: 7vh; overflow: auto; font-size: 0.8em; line-height: 1em">{{ podcast.blurb }}</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+<div class="container main">
+  <h1 class='header'>Welcome to Island Time!</h1>
+  <p>
+    My name is Brett Henderson, and I am a California transplant living on Vancouver Island. As a computational
+    chemist, I use some of the most powerful computers in the world to probe matter at the atomic scale. What follows mostly
+    has nothing to do with that...
+  </p>
+  <div class="stretchy justify-content-center">
+    <div class="row justify-content-center">
+      <a class="clickable-icon" href={{ "/projects" | relative_url }}>
+        <span class="fa-stack fa-shadowy">
+          <i class="fa fa-square fa-stack-2x" style="color: #8a0000"></i>
+          <i class="fa-inner fa fa-code fa-stack-1x" style="color: #2b9ee0"></i>
+          <span class="fa fa-stack-1x icon-text-span" style="color: #2b9ee0">
+            <span class="icon-text">
+              Projects
+            </span>
+          </span>
+        </span>
       </a>
     </div>
-  <!-- Middle of row -->
-  {% else %}
-    <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-      <div class="card">
-        <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
-        <div class="card-body p-2">
-          <h6 class="card-title">{{ post.title }}</h6>
-          <p class="card-text">{{ post.blurb }}</p>
-        </div>
-      </div>
-    </a>
-  {% endif %}
-{% endfor %}
-{% if rowfinder != 0 %}
+    <div class="row justify-content-center">
+      <a class="clickable-icon" href={{ "/about" | relative_url }}>
+        <span class="fa-stack fa-shadowy">
+          <i class="fa fa-square fa-stack-2x" style="color: #00008a"></i>
+          <i class="fa-inner fa fa-mountain fa-stack-1x" style="color: #38c754"></i>
+          <span class="fa fa-stack-1x icon-text-span" style="color: #38c754">
+            <span class="icon-text">
+              About
+            </span>
+          </span>
+        </span>
+      </a>
+      <a class="clickable-icon" href={{ "/cv" | relative_url }}>
+        <span class="fa-stack fa-shadowy">
+          <i class="fa fa-square fa-stack-2x" style="color: #00610b"></i>
+          <i class="fa-inner fa fa-pencil-alt fa-inner fa-stack-1x" style="color: #dec628"></i>
+          <span class="fa fa-stack-1x icon-text-span" style="color: #dec628">
+            <span class="icon-text">
+              CV
+            </span>
+          </span>
+        </span>
+      </a>
+    </div>
   </div>
-{% endif %}
+</div>
+
+

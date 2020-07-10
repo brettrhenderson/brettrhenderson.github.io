@@ -7,7 +7,6 @@ title: "Featured Projects"
     These are the fun python adventures that consume my free time, mixed in with some old college projects for the sake of
     nostalgia and just a *little* bit of what I do now for research. I hope they offer an entertaining look at what you
     can do with an old laptop and a bit of code and perhaps inspire or guide you as you build things of your own!
-<h3>Featured Projects</h3>
 </p>
 {% assign loopindex = 0 %}
 {% for post in site.posts %}
@@ -16,9 +15,9 @@ title: "Featured Projects"
   <!-- Beginning of row -->
   {% if rowfinder == 1 %}
     <div class="row">
-      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-        <div class="card">
-          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image" height="130">
+      <a class="clickable-card col-sm-4 p-3" href="{{ post.url }}">
+        <div class="card shadowy p-2">
+          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image" height="130">
           <div class="card-body p-2">
             <h6 class="card-title">{{ post.title }}</h6>
             <p class="card-text">{{ post.blurb }}</p>
@@ -27,9 +26,9 @@ title: "Featured Projects"
       </a>
   <!-- End of row -->
   {% elsif rowfinder == 0 %}
-      <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-        <div class="card">
-          <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
+      <a class="clickable-card col-sm-4 p-3" href="{{ post.url }}">
+        <div class="card shadowy p-2">
+          <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
           <div class="card-body p-2">
             <h6 class="card-title">{{ post.title }}</h6>
             <p class="card-text">{{ post.blurb }}</p>
@@ -39,9 +38,9 @@ title: "Featured Projects"
     </div>
   <!-- Middle of row -->
   {% else %}
-    <a class="clickable-card col-sm-4 p-2" href="{{ post.url }}">
-      <div class="card">
-        <img class="card-img-top p-2" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
+    <a class="clickable-card col-sm-4 p-3" href="{{ post.url }}">
+      <div class="card shadowy p-2">
+        <img class="card-img-top" src="/images/{{ post.thumbnail }}" alt="Card Image"  height="150">
         <div class="card-body p-2">
           <h6 class="card-title">{{ post.title }}</h6>
           <p class="card-text">{{ post.blurb }}</p>
