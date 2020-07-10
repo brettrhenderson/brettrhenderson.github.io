@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Pacman: Revenge of Blinky"
-date: 2020-04-20
 thumbnail: pacboi.png
 blurb: "A fun implementation of the classic video game using Javascript."
 ---

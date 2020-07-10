@@ -9,7 +9,7 @@ title: "Featured Projects"
     can do with an old laptop and a bit of code and perhaps inspire or guide you as you build things of your own!
 </p>
 {% assign loopindex = 0 %}
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% assign loopindex = loopindex | plus: 1 %}
   {% assign rowfinder = loopindex | modulo: 3 %}
   <!-- Beginning of row -->

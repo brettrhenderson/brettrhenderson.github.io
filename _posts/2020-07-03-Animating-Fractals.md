@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Animating Fractals"
-date: 2020-04-20
 thumbnail: fractal.png
 blurb: "Using matplotlib and some basic tree traversal algorithms to build a common 2D fractal."
 ---

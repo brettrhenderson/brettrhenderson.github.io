@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Some Physical (and Unphysical) Simulations"
-date: 2020-04-20
 thumbnail: gravity.png
 blurb: "A collection of classical mechanics simulations, from celestial orbits to ideal gases."
 ---
