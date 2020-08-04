@@ -54,7 +54,7 @@ blurb: "Solving the classic maximum cut graph problem within D-Wave's Ocean SDK.
         <center>
             <img src="/images/max_cut/quirk.png", width=600 align="center">
         </center>
-        <figcaption style="max-width: 700px;">
+        <figcaption style="max-width: 900px;">
             <i>Top: </i>A depiction of the energy landscape during quantum annealing, where black lines indicate the energy of each
             qubit configuration and the green dashed lined show the wave function \(|\psi\rangle\) of the qubits. Since
             the probability of finding a qubit in a given configuration is \(\langle\psi|\psi\rangle^2\), the amplitude
@@ -93,7 +93,7 @@ blurb: "Solving the classic maximum cut graph problem within D-Wave's Ocean SDK.
         <center>
             <img src="/images/max_cut/max_cut_graph2.png", width=800 align="center">
         </center>
-        <figcaption style="max-width: 700px;">
+        <figcaption style="max-widt: 900px;">
             <i>Left:</i> An example un-directed graph with 5 nodes and 6 edges. <i>Right:</i> The maximum cut of the graph,
             where red vertices are in one set and white vertices are in the other. There are 5 cuts between opposing sets
             of vertices in this solution.
@@ -391,7 +391,7 @@ inspector.show(sampleset)
         <p align="center">
           <img src="/images/max_cut/max_cut_force_hist.png" alt="Inspector" width="800">
         </p>
-        <figcaption style="max-width: 700px;">
+        <figcaption style="max-widt: 900px;">
             The D-Wave inspector for our QUBO solution. On the left, we see the "force-directed" view
             of our variables. The colors of the nodes indicate the variable value, and the rings around the nodes
             indicate the bias on those variables. Hovering over an edge will also reveal the coupling bias. On the
@@ -424,7 +424,7 @@ inspector.show(sampleset)
         <p align="center">
             <img src="/images/max_cut/max_cut_force_qpu.png" alt="QPU Embedding" width="800">
         </p>
-        <figcaption style="max-width: 700px;">
+        <figcaption style="max-widt: 900px;">
             <i>Top Left: </i>Qubits in the physical QPU are arranged into 8-qubit "unit cells". Not all qubits can
             be coupled. There is a coupler between each column qubit (e.g. q1) and the corresponding rows
             (q4, q5, q6, q7), but no coupling between rows or between columns. <i>Top Right: </i> The Unit cells
@@ -452,7 +452,7 @@ inspector.show(sampleset)
         <p align="center">
             <img src="/images/max_cut/max_cut_chain_break.png" alt="Unit Cell" width="800">
         </p>
-        <figcaption style="max-width: 700px;">
+        <figcaption style="max-widt: 900px;">
             <i>Left:</i> Hovering over variable "xC", we notice that its color is split, indicating that its corresponding
             chain has not agreed on a single value. <i>Right: </i>The qubits in the chain are split, with each taking
             a different value.
