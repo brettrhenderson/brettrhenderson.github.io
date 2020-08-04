@@ -284,6 +284,7 @@ a.clickable-card.light-hover:hover .card {
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
+  padding-bottom: 80px;
 }
 
 /* The navigation menu links */
