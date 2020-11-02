@@ -252,7 +252,7 @@ import dwave.inspector as inspector
         matches the coupling defined in our problem. In some cases, because of the QPU architecture, the embedding composite
         may not be able to do a one-to-one mapping of variables to qubits and may need to represent a single variable over
         a chain of qubits. Luckily for us, we can delegate all of this work to the embedding composite for this Max-Cut
-        problem and not think much of it. Latly, <span class="inline-code">dwave.inspector</span> is a post-processing tool
+        problem and not think much of it. Lastly, <span class="inline-code">dwave.inspector</span> is a post-processing tool
         that allows us to see how the problem was embedded in the QPU and visualize our solutions.
     </p>
 <h5 id="code2" class="linkable">Define the Problem</h5>
@@ -271,8 +271,28 @@ graph = {('A', 'B'), ('A', 'C'), ('B', 'C'), ('B', 'D'), ('B', 'E'), ('C', 'D')}
         are binary-valued variables and bias is their associated coefficient"</i>. In fact, we can name our binary
         variables anything as long as we're consistent. I could just leave them as the names of the vertices in my graph,
         but I want to make a slight distinction between the variables themselves and what they stand for. Therefore,
-        I settled on prefixing all vertex names with 'x' when converting them to variable names. Using the graph above,
-        the objective function coefficients can be written
+        I settled on prefixing all vertex names with 'x' when converting them to variable names.
+    </p>
+    <p>
+        What are the coeffiecients, or biases, in our Q matrix? They are the coefficients of each term in the objective
+        function above. Since this is a relatively small problem, we can write out the expanded sum in the objective
+        function to see what is going on. Summing over all edges, in the graph, we get
+
+        \begin{equation*}
+            E_{qubo} = 2x_A x_B - x_A - x_B + 2x_A x_C - x_A - x_C + 2x_Bx_C - x_B - x_C + \\
+                        2x_B x_D - x_B - x_D + 2x_B x_E - x_B - x_E + 2x_C x_D - x_C - x_D
+        \end{equation*}
+    
+        And by combining like terms, we can see that all of the cross terms (denoting an edge) have a bias of 2,
+        and all of the linear terms have a coefficient equal to the negative of the number of edges attached to that
+        node.
+
+        \begin{equation*}
+            E_{qubo} = 2x_A x_B + 2x_A x_C + 2x_Bx_C + 2x_B x_D + 2x_B x_E + 2x_C x_D \\
+                        - 2x_A - 4x_B - 3x_C - 2x_D - 1x_E
+        \end{equation*}
+
+        As a Q matrix, we write this
     </p>
 {% highlight python %}
 graph = {('xA', 'xB'): 2,
@@ -300,12 +320,12 @@ graph = {('xA', 'xB'): 2,
 {% highlight python %}
 Q = {}
 for edge in graph:
-Q[('x' + edge[0], 'x' + edge[1])] = 2  # edges are unique
-for i in [0, 1]:
-    if ('x' + edge[i], 'x' + edge[i]) in Q:  # vertices will come up again and again
-        Q[('x' + edge[i], 'x' + edge[i])] -= 1
-    else:
-        Q[('x' + edge[i], 'x' + edge[i])] = -1
+    Q[('x' + edge[0], 'x' + edge[1])] = 2  # edges are unique
+    for i in [0, 1]:
+        if ('x' + edge[i], 'x' + edge[i]) in Q:  # vertices will come up again and again
+            Q[('x' + edge[i], 'x' + edge[i])] -= 1
+        else:
+            Q[('x' + edge[i], 'x' + edge[i])] = -1
 {% endhighlight %}
     <p>
         Feel free to step through this code yourself to verify that it does in fact produce the desired Q dictionary
