@@ -1,0 +1,218 @@
+---
+layout: post
+title: "Nerd Nite Victoria"
+thumbnail: nerd_nite.png
+blurb: "Presenting an overview of quantum computing and its promising future in a casual setting."
+---
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<br>
+<center>
+    <img src="/images/nerd_nite/header.png" width=800 align="center">
+</center>
+<br>
+
+<h3 id="a-night-out" class="linkable">A Nite out</h3>
+<p>
+    Last year, when it was safer and easier to go grab a pint with friends, I headed downtown to
+    watch one of my friends and lab mates, James McFarlane, give a talk about his research in computer assisted drug
+    design at an event called Nerd Nite. Held monthly in the Victoria Events center, a cozy upstairs bar with a small
+    stage, Nerd Nite gave academics like James, as well as adventurers, artists, and curiosity seekers to talk, often
+    with beer in hand, to a friendly crowd about their work. I really admired James, who was in the last term of his PhD
+    at the time, for being able to explain his complex research so clearly to a general audience. It seemed like a
+    daunting yet productive exercise. If he could explain his research topic thoroughly, but also at a level suitable
+    to non-specialists and even non-scientists, he must truly have a great command over his material.
+</p>
+
+<h3 id="feynaman-on-teaching" class="linkable">Feynaman on Teaching</h3>
+<a id="feynman-teaching" class="anchor"></a>
+<div class="row justify-content-center">
+    <figure>
+        <center>
+            <img src="/images/nerd_night/feynman_lecturing.png", width=800 align="center">
+        </center>
+        <figcaption style="max-width: 900px;">
+            Richard Feynman was renowned as both a theoretician and teacher. Aside from being endlessly quotable, he had
+            a knack for explaining complex topics in digestible bits. The
+            <a href="https://www.feynmanlectures.caltech.edu/">Feynman Lectures on Physics</a> for example,
+            originally delivered to first year students at Cal Tech in the early 1960s, remain an excellent resource for
+            students today.
+        </figcaption>
+    </figure>
+</div>
+<p>
+    It turns out that Nobel Laureate and Cal Tech professor Richard Feynman had a similar belief. As told by Feynman's
+    collegue David L. Goodstein in the book "Feynman's Lost Lecture: The Motion of Planets Around the Sun":
+</p>
+<blockquote>
+    Feynman was a truly great teacher. He prided himself on being able to devise ways to explain even the most profound
+    ideas to beginning students. Once, I said to him, "Dick, explain to me, so that I can understand it, why spin
+    one-half particles obey Fermi-Dirac statistics." Sizing up his audience perfectly, Feynman said, "I'll prepare a
+    freshman lecture on it." But he came back a few days later to say, "I couldn't do it. I couldn't reduce it to the
+    freshman level. That means we don't really understand it."
+</blockquote>
+
+<p>
+    Feynman suggests that if you truly understand something, you should be able to explain it to an audience with less
+    experience in terms they understand. This requires that you not merely regurgitate definitions but reformulate
+    your understanding of the topic in terms of the knowledge base of others--no easy task! To do so, you need to
+    break down complex ideas to their essence and then reconstruct those in terms that are mutually understood.
+</p>
+<p>
+    I tend to think a corollary of this is that the act of breaking down concepts to their essence also helps the
+    instructor, and not just the audience, understand their ideas better. In fact, in searching for the source of
+    Feynman's quote above, I came across countless blogs and advertisements for "The Feynman Technique", a method of
+    learning material that begins with the exercise of trying to explain that material to a child (or a
+    <a href="https://fs.blog/2021/02/feynman-learning-technique/">rubber duck?</a>). I couldn't find a definitive
+    answer to whether Feynman himself ever articulated this eponymous technique or if it was just the clever
+    branding of others piggy-backing off Feynman's reputation as "The Great Explainer". Nevertheless, the central idea
+    has generally held true for me when I am trying to learn a concept. I identify gaps in my own understanding when
+    I try to teach it to others (and field their questions). But I've also devoted productive time to thinking through
+    the concept deeply even before presenting.
+</p>
+
+<h3 id="an-invitation" class="linkable">An Invitation</h3>
+<p>
+    At any rate, a few months after James's Nerd Nite talk, he became involved with recruiting speakers for the monthly
+    events and reached out to ask if I had anything I wanted to present. I had recently begun learning about quantum
+    computing in earnest as part of my chemistry research. In particular, my research supervisor is very interested in
+    how quantum computing can be used to grow our computational chemistry toolbox. After attending some
+    lectures on the topic, I was taking a university course on quantum computing and starting to get a handle
+    on at least the very basics. So I set out write a roughly 20 minute talk about these basics. I hoped to give the
+    audience a sense of why quantum computing was becoming such a buzz-word, and why us chemists in particular are so
+    excited about it. In the process, I hoped that I could put the Feynman technique to the test, hopefully gaining a
+    better understanding of quantum computing basics as I set out to tell others about them.
+</p>
+
+<h3 id="preparing-a-talk" class="linkable">Preparing a Talk</h3>
+<p>
+    It turns out that just prior to James's invitation, I had gotten a little practice on presenting quantum computing.
+    That semester, I was a teaching assistant for an undergraduate chemistry course on quantum mechanics. For one of the
+    classes, the professor, who also happened to be my research supervisor, asked if I would give a lecture on quantum
+    computing. She had recently explained quantum superpositions and entanglement, topics which often accompany any
+    introductory explanation of quantum computing, and felt like a bit of applied learning would be nice. In my lecture,
+    I walked the class through some explanations of qubits as two-level systems, Bloch sphere rotations, and entanglement.
+    We finished up with some hands-on demos using the <a href="https://quantum-computing.ibm.com/">IBM Quantum Experience</a>.
+</p>
+<p>
+    I really enjoyed this experience and learned a lot, but I knew that a talk a general public audience at Nerd Nite
+    would need to be very different than one to a group of third year chemistry students who had been studying quantum
+    mechanics for two months. I did think about this a good deal, but I admit the choices I made for how to structure
+    my talk were mostly just based on intuition and by no means based on hard research into cognitive science or education.
+    So while I describe my approach, please don't take it as prescriptive for how a talk should be given! With that
+    disclaimer out of the way, here are a few of the ideas I used to guide the preparation of my talk and approach it
+    differently than I had with the lecture I gave.
+</p>
+<h4 id="adding-doodles" class="linkable">More Doodles</h4>
+<p>
+    For one, I decided I should  make ample use of graphics. I had a lot of fun--and spent way
+    too much time--doodling pictures that I felt would be informative enough to explain and yet cartoon-y enough to keep
+    the audience engaged.
+</p>
+
+<a id="doodles" class="anchor"></a>
+<div class="row justify-content-center">
+    <figure>
+        <center>
+            <div id="doodleCarouselIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#doodleCarouselIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#doodleCarouselIndicators" data-slide-to="1"></li>
+                <li data-target="#doodleCarouselIndicators" data-slide-to="2"></li>
+                <li data-target="#doodleCarouselIndicators" data-slide-to="3"></li>
+                <li data-target="#doodleCarouselIndicators" data-slide-to="4"></li>
+                <li data-target="#doodleCarouselIndicators" data-slide-to="5"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="/images/nerd_nite.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/images/nerd_night/switches.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/images/nerd_night/single_superposition.png" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/images/nerd_night/measurement.png" alt="Fourth slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/images/nerd_night/earth.png" alt="Fifth slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/images/nerd_night/moon.png" alt="Sixth slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#doodleCarouselIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#doodleCarouselIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </center>
+        <figcaption style="max-width: 900px;">
+            Here are a few of the doodles I included in my slides to help describe wave-particle
+            duality, classical bits, superposition, measurement, and entanglement. Some probably miss the mark,
+            but on the whole I think they served well to help keep the talk light and grounded.
+        </figcaption>
+    </figure>
+</div>
+
+<h4 id="common-knowledge" class="linkable">Start From Common Knowledge</h4>
+<p>
+    I also tried to structure the talk much differently, hoping to draw on what I assumed would be
+    shared knowledge with the audience. In my lecture to undergraduate students, I tried to begin the discussion from
+    the common understanding we had built up over the semester about superposition states and entanglement. At Nerd Nite,
+    I tried to base the discussion on a comparison with the computers most were familiar with, like the cell phones in
+    their pockets.
+</p>
+<h4 id="context" class="linkable">Give Context</h4>
+<p>
+    On top of that, I did my best to try to put the development of quantum computing in its historical context. I didn't
+    care so much whether my audience came out being able to explain how to entangle qubits. But I did want them to understand
+    why the fact that we can do so is exciting, and what historical developments these achievements rested on. I also
+    hoped that relating quantum computing to a historical figure that everyone knew, like Albert Einstein, would help
+    ground the discussion a bit. I also tried to finish with a sense of where the technology could take us in the future,
+    offering some examples of research topics that might benefit from using quantum computers.
+</p>
+<h4 id="context" class="linkable">A Pinch of Humor</h4>
+<p>
+    Finally, I did my best to incorporate some humor. I don't think that I have much of a comedic sense, so I didn't
+    want to lean on this too heavily. But a little levity, I felt, would be nice when even saying the word "quantum"
+    seems to shut some people off (I learned this from previous conversations I'd had with my mom
+    about the topic)
+</p>
+
+<h3 id="the-big-nite" class="linkable">The Big Nite</h3>
+<p>
+    The night of went off with only a couple of hitches. I had slept very little the previous night (I may have procrastinated
+    in finishing my talk) and had never given a talk to a general audience, or really to anyone other than my classmates.
+    While I didn't feel extremely nervous, I know that my voice was shaking and palms were sweating, but I got through it.
+    Aside from one moment where my slide show was interrupted due to a technical difficulty, I was able stick to the
+    talk as rehearsed. There were a few laughs, some great questions by the audience, and a couple pints of beer to rehydrate
+    after a bit of a draining talk.
+</p>
+
+<h3 id="takeaways" class="linkable">Takeaways</h3>
+<p>
+    On the whole, presenting at Nerd Nite was a great experience for me. I know there are a million TED talks and other
+    videos introducing quantum computing all across the internet, most of which probably do a much better job than mine.
+    Still, I am very grateful for the opportunity that Nerd Nite gave me, and I think that trying to explain the topic of
+    quantum computing to others really did help me learn more myself. With that said, I know I still have gaps in my
+    understanding of even the basics, which this talk helped me identify. Not to mention the vast swaths of still
+    completely foreign territory in quantum computing once I begin to dive a little deeper. I look forward to learning
+    more, and I hope that I can continue to use both public speaking and other opportunities like presenting my research
+    within the chem department or at conferences to both share what I have learned and solidify my own grasp of it.
+    Check the video below for a recording of my Nerd Nite Talk!
+</p>
+
+<p align="center">
+    <video width="800" controls>
+        <source src="/videos/nerd_nite.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</p>
