@@ -163,3 +163,14 @@ anim = animate_sierpinsky(tree, order=dfs, N=3, interval=20, save_count=10**4)  
 
 HTML(anim.to_html5_video())  # display the video in notebook
 ```
+
+The resulting video will display the construction of the fractal in the order dictated by a depth-first search, as seen below.
+
+{% include video.html url="/videos/dfs.mp4" width=800 %}
+
+We can alternatively change the `order` parameter in `animate_sierpinsky` to use other search methods, including a
+breadth-first search, seen here.
+
+{% include video.html url="/videos/bfs.mp4" width=800 %}
+
+Who said computer science couldn't be fun!?
